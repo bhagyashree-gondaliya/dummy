@@ -12,7 +12,6 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
     "react-native-fetch-blob": "^0.10.8",
     "react-native-image-pan-zoom": "^2.1.11",
-    "react-native-image-view": "^2.1.2",
     "react-native-super-grid": "^3.0.1"
   },
   "devDependencies": {

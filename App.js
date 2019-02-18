@@ -11,7 +11,8 @@ import {
   TouchableHighlight,
   Dimensions,
   Share,
-  Keyboard
+  Keyboard,
+  CameraRoll
 } from "react-native";
 import ImageZoom from "react-native-image-pan-zoom";
 
@@ -79,9 +80,16 @@ export default class App extends React.Component {
     };
     Share.share(shareValue);
   }
+
+  saveClicked(value) {
+    CameraRoll.saveToCameraRoll(value, "photo");
+    alert("Open Your Gallery and Enjoy :)");
+  }
+  componentWillMount() {}
   componentDidMount() {
     this.getImagesFromApiAsync(this.state.query);
   }
+  componentWillUnmount() {}
   options() {
     return options.map(value => {
       return (
@@ -151,7 +159,13 @@ export default class App extends React.Component {
                 style={styles.close}
                 onPress={() => this.shareClicked(this.state.iamgeUrl)}
               >
-                <Text style={{ textAlign: "center" }}>share</Text>
+                <Text style={{ textAlign: "center" }}>Share</Text>
+              </TouchableHighlight>
+              <TouchableHighlight
+                style={styles.close}
+                onPress={() => this.saveClicked(this.state.iamgeUrl)}
+              >
+                <Text style={{ textAlign: "center" }}>Save</Text>
               </TouchableHighlight>
             </View>
             <ImageZoom
